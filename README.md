@@ -4,8 +4,6 @@
 
 ![Image](https://github.com/user-attachments/assets/e48a5750-8323-437b-b32a-8d3715435623)
 
-*(Replace placeholder.png with an actual screenshot link/path if desired)*
-
 ## About BrowserPad
 
 BrowserPad is a web-based text and code editor designed to run directly in your browser. This current version operates entirely client-side, allowing you to open and edit local files or browse local folders selected via your browser. It utilizes the powerful CodeMirror library for syntax highlighting and provides a clean, dark-themed interface.
@@ -74,5 +72,3 @@ This client-side version serves as the front-end component.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details (or choose another license like Apache 2.0 if preferred).
-
-*(You should create a `LICENSE` file in your repository containing the text of the chosen license, e.g., the MIT License text).*
