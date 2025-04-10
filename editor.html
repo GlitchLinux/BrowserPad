@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Web Editor</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/material-darker.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="expand-sidebar-btn" class="sidebar-toggle-btn" title="Expand Sidebar" style="display: none;">➡</button>
+
+    <div class="editor-container">
+        <div class="file-browser">
+            <div class="file-browser-header">
+                <button id="open-folder-btn" title="Open Local Folder">📁 Open Folder</button>
+                <button id="collapse-sidebar-btn" class="sidebar-toggle-btn" title="Collapse Sidebar">⬅</button>
+            </div>
+            <ul class="file-browser-list" id="file-list">
+                <li class="empty-list-msg">Use "Open Folder" to browse local files.</li>
+            </ul>
+        </div>
+
+        <div class="editor-pane">
+            <div class="editor-toolbar">
+                <span id="current-file" title="Current file">Editing: None</span>
+                <div class="toolbar-controls">
+                    <button id="new-file-btn" title="New File">➕ New</button>
+                    <div class="separator"></div>
+                    <button id="font-decrease-btn" title="Decrease Font Size">-</button>
+                    <span id="current-font-size">14px</span> <button id="font-increase-btn" title="Increase Font Size">+</button>
+                    <div class="separator"></div>
+                    <button id="save-btn" disabled title="Download File">Save</button>
+                    <div class="dropdown">
+                        <button id="dropdown-btn" title="More Actions">▼</button>
+                        <div class="dropdown-content" id="dropdown-menu">
+                            <a href="#" id="save-as-link">Save As...</a>
+                            <a href="#" id="open-link">Open Local File...</a>
+                            <a href="#" id="settings-link">Settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <textarea id="editor-area"></textarea>
+        </div>
+    </div>
+
+    <input type="file" id="file-input" accept=".txt,.html,.css,.js,.py,.sh,.c,.cpp,.java,.md,text/*,application/json" style="display: none;">
+    <input type="file" id="folder-input" webkitdirectory directory multiple style="display: none;">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/properties/properties.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
