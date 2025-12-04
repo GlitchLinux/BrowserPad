@@ -1,0 +1,9 @@
+AuthType Basic
+AuthName "BrowserPad - Authentication Required"
+AuthUserFile /var/www/glitchlinux.wtf/browserpad/.htpasswd
+Require valid-user
+
+# Deny access to sensitive files
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>

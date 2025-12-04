@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowserPad</title>
+    <link rel="icon" href="https://glitchlinux.wtf/browserpad/icons/browserpad.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="api/codemirror/codemirror.min.css">
+    <link rel="stylesheet" href="api/codemirror/theme/material-darker.min.css">
+    <link rel="stylesheet" href="api/codemirror/theme/dracula.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Expand button positioned at top left, only visible when collapsed -->
+        <button id="expand-sidebar-btn" class="expand-arrow" title="Expand Sidebar" style="display: none;">➡</button>
+
+        <div class="file-browser">
+            <div class="file-browser-header">
+                <button id="new-folder-btn" title="Create New Folder">[+]</button><button id="rename-btn" title="Rename Selected">[✎]</button><button id="delete-file-btn" title="Delete Selected (moves to trash)">[x]</button><button id="trash-btn" title="View Trash">[🗑]</button><button id="download-btn" title="Download Selected File">[⬇]</button>
+                <button id="open-folder-btn" title="Load Files from Server">📁 Open Folder</button>
+                <button id="collapse-sidebar-btn" class="sidebar-toggle-btn" title="Collapse Sidebar">⬅</button>
+            </div>
+            <ul class="file-browser-list" id="file-list">
+                <li class="empty-list-msg">Click "Open Folder" to load files from server.</li>
+            </ul>
+        </div>
+
+        <div class="editor-pane">
+            <div class="editor-toolbar">
+                <span id="current-file" title="Current file">Editing: untitled.txt</span>
+                <div class="toolbar-controls">
+                    <button id="new-file-btn" title="New File">➕ New</button>
+                    <div class="separator"></div>
+                    <button id="font-decrease-btn" title="Decrease Font Size">-</button>
+                    <span id="current-font-size">14px</span> <button id="font-increase-btn" title="Increase Font Size">+</button>
+                    <div class="separator"></div>
+                    <button id="save-btn" title="Save File to Server">Save</button>
+                    <div class="dropdown">
+                        <button id="dropdown-btn" title="More Actions">▼</button>
+                        <div class="dropdown-content" id="dropdown-menu">
+                            <a href="#" id="toggle-linenumbers-link">☑ Line Numbers</a>
+                            <a href="#" id="toggle-highlighting-link">☑ Syntax Highlighting</a>
+                            <a href="#" id="toggle-theme-link">🎨 Theme: Material-darker</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <textarea id="editor-area"></textarea>
+        </div>
+    </div>
+
+    <input type="file" id="file-input" accept=".txt,.html,.css,.js,.py,.sh,.c,.cpp,.java,.md,text/*,application/json" style="display: none;">
+    <input type="file" id="folder-input" webkitdirectory directory multiple style="display: none;">
+
+
+    <script src="api/codemirror/codemirror.min.js"></script>
+    <script src="api/codemirror/mode/xml.min.js"></script>
+    <script src="api/codemirror/mode/javascript.min.js"></script>
+    <script src="api/codemirror/mode/css.min.js"></script>
+    <script src="api/codemirror/mode/python.min.js"></script>
+    <script src="api/codemirror/mode/shell.min.js"></script>
+    <script src="api/codemirror/mode/clike.min.js"></script>
+    <script src="api/codemirror/mode/markdown.min.js"></script>
+    <script src="api/codemirror/mode/properties.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Trash Modal -->
+    <div id="trash-modal" class="trash-modal">
+        <div class="trash-content">
+            <div class="trash-header">
+                <h3>🗑 Trash</h3>
+                <button class="trash-close" id="trash-close">&times;</button>
+            </div>
+            <div class="trash-list" id="trash-list">
+                <div class="trash-empty">Loading...</div>
+            </div>
+            <div class="trash-footer">
+                <button id="empty-trash-btn">Empty Trash</button>
+            </div>
+        </div>
+    </div>
+    <!-- Custom Modal System -->
+    <div id="custom-modal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <h3 id="modal-title">Title</h3>
+                <button class="modal-close-btn" id="modal-close-x">&times;</button>
+            </div>
+            <div class="custom-modal-body">
+                <p id="modal-message"></p>
+                <input type="text" id="modal-input" class="modal-input" style="display:none;" />
+            </div>
+            <div class="custom-modal-footer">
+                <button id="modal-cancel" class="modal-btn modal-btn-cancel">Cancel</button>
+                <button id="modal-confirm" class="modal-btn modal-btn-confirm">OK</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
