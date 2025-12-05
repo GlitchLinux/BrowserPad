@@ -11,7 +11,7 @@
 ### Dracula Theme (Python)
 ![BrowserPad Dracula Theme](screenshots/browserpad-dracula.png)
 
-### Material Darker Theme (Shell)
+### Material Darker Theme
 ![BrowserPad Material Darker](screenshots/browserpad-notheme.png)
 
 ## Features
